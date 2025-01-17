@@ -1257,16 +1257,16 @@ setTimeout(function() {
 
 // Массив ссылок на картинки
 const imageLinks = [
-  '../img/message-random-1.jpg',
-  '../img/message-random-2.jpg',
-  '../img/message-random-3.jpg',
-  '../img/message-random-4.jpg',
-  '../img/message-random-5.jpg',
-  '../img/message-random-6.jpg',
-  '../img/message-random-7.jpg',
-  '../img/message-random-8.jpg',
-  '../img/message-random-9.jpg',
-  '../img/message-random-10.jpg',
+  'img/message-random-1.jpg',
+  'img/message-random-2.jpg',
+  'img/message-random-3.jpg',
+  'img/message-random-4.jpg',
+  'img/message-random-5.jpg',
+  'img/message-random-6.jpg',
+  'img/message-random-7.jpg',
+  'img/message-random-8.jpg',
+  'img/message-random-9.jpg',
+  'img/message-random-10.jpg',
   // Добавьте здесь остальные ссылки на картинки
 ];
 
