@@ -1,0 +1,676 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Play', sans-serif;
+    background: linear-gradient(to bottom, black, #340f57); /* Вертикальный градиент от черного к темно-фиолетовому */
+    background-repeat: no-repeat;
+  }
+
+
+  .h2Yellow {
+    position: fixed;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Play', sans-serif;
+    color: rgb(186, 134, 255); /* Белый цвет текста */
+    opacity: 0.9;
+    z-index: 300;
+  }
+  
+
+
+
+  .chat-container {
+    position: fixed;
+    top: 50px;
+    width: 500px;
+    max-width: 500px;
+    height: 77vh;
+    left: 50%; /* Установка левого края контейнера на 50% от ширины родительского блока */
+    transform: translateX(-50%); /* Смещение контейнера влево на половину его ширины */
+    border: 1px solid #868686;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: rgb(14, 14, 14);
+}
+
+
+  /* Стиль для .faq при режиме экрана портрет */
+  @media only screen and (max-width: 600px) and (orientation: portrait) {
+  .chat-container {
+    width: 91%;
+    max-width: 91%;
+
+  }
+}
+
+
+  .chat-box {
+    height: 315px;
+    overflow-y: scroll;
+    padding: 10px;
+    height: 65vh;
+    background-color: #a8a8a80c;
+    border-bottom: 1px solid rgba(162, 147, 190, 0.281);;
+  }
+
+  /* Стиль для .faq при режиме экрана портрет */
+  @media only screen and (max-width: 600px) and (orientation: portrait) {
+  .chat-box {
+    width: calc(100% - 20px);
+
+  }
+}
+
+
+
+
+  .chat-box::-webkit-scrollbar {
+    width: 12px; /* Ширина полосы прокрутки */
+    border: 1px solid rgba(174, 0, 255, 0);
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    z-index: 80;
+}
+
+  .chat-box::-webkit-scrollbar-track {
+
+        
+    background: rgba(173, 173, 173, 0.315); /* Цвет фона трека */
+    border-top-right-radius: 0px; /* Закругление нижнего правого угла */
+    border-bottom-right-radius: 0px; /* Закругление нижнего правого угла */
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+
+  background: rgba(0, 0, 0, 0.534); /* Цвет полосы прокрутки */
+  
+}
+
+
+
+
+.user-input {
+  position: relative;
+  margin-left: 6px;
+  margin-right: 5px;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  bottom: -8px;
+  color: rgb(255, 255, 255);
+  width: 250px; /* Учитываем отступы по 20px с каждой стороны */
+  height: 40px;
+  font-family: "Play";
+  border: 2px solid rgb(134, 134, 134); /* Лавандовая рамка */
+  background-color: rgba(22, 22, 22, 0.8); /* Лавандовый цвет с полупрозрачностью */
+  z-index: 171; /* Индекс слоя */
+  transition: border-color 0.5s;
+  resize: none; /* Добавляем возможность изменения размера инпута пользователем */
+}
+
+  /* Стиль для .faq при режиме экрана портрет */
+  @media only screen and (max-width: 600px) and (orientation: portrait) {
+    .user-input {
+      width: 180px; /* Учитываем отступы по 20px с каждой стороны */
+
+    }
+  }
+
+
+/* Стиль при наведении */
+.user-input:hover {
+    border-color: rgb(149, 0, 255); /* Фиолетовый цвет */
+}
+
+/* Стиль при фокусе */
+.user-input:focus {
+    border-color: rgb(255, 0, 255); /* Темно-фиолетовый цвет */
+}
+
+
+.user-input::-webkit-scrollbar {
+  width: 12px; /* Ширина полосы прокрутки */
+  border: 1px solid rgba(174, 0, 255, 0);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 80;
+}
+
+.user-input::-webkit-scrollbar-track {
+
+      
+  background: rgba(173, 173, 173, 0.315); /* Цвет фона трека */
+  border-top-right-radius: 5px; /* Закругление нижнего правого угла */
+  border-bottom-right-radius: 5px; /* Закругление нижнего правого угла */
+}
+
+.user-input::-webkit-scrollbar-thumb {
+
+background: rgba(0, 0, 0, 0.534); /* Цвет полосы прокрутки */
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+  .send-button {
+    position: relative;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    top: -26px;
+    background-color: rgba(0, 0, 0, 0.5); /* Черный цвет фона */
+    color: white; /* Белый цвет текста */
+    border: 1px solid rgba(134, 134, 134, 0.521); /* Убираем границу */
+    border-radius: 10px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    transition: background-color 0.2s, color 0.3s, padding 0.2s; /* Плавные переходы */
+    z-index: 99;
+  }
+
+.send-button:hover {
+    border: 1px solid rgba(76, 0, 255, 0.63); /* Убираем границу */
+    background-color: rgb(62, 0, 179); /* Белый цвет фона при наведении */
+    color: rgb(255, 255, 255); /* Черный цвет текста при наведении */
+}
+
+.send-button:active {
+    color: rgb(195, 0, 255); /* Белый цвет текста */
+    background-color: rgb(97, 55, 177); /* Белый цвет фона при наведении */
+}
+
+
+
+
+
+.faq {
+  position: relative;
+  top: -18px;
+  left: 290px;
+  width: 180px;
+  height: 20px;
+  display: flex; /* Устанавливаем flex-контейнер */
+  justify-content: space-between; /* Равномерно распределяем элементы по горизонтали */
+  align-items: center; /* Выравниваем элементы по центру по вертикали */
+  font-size: 11px;
+  color: rgb(156, 156, 156); /* Черный цвет текста при наведении */
+  z-index: 500;
+}
+
+  /* Стиль для .faq при режиме экрана портрет */
+  @media only screen and (max-width: 600px) and (orientation: portrait) {
+    .faq {
+      display: none;
+      left: auto;
+      right: -220px;
+
+    }
+  }
+
+
+
+
+
+
+
+
+  .user-message, .bot-message {
+    position: relative;
+    text-align: left;
+    color: rgb(255, 255, 255);
+    background-color: rgba(131, 131, 131, 0.112);
+    padding: 5px;
+    border: 1px solid rgba(138, 138, 138, 0.155);
+    border-radius: 10px;
+    padding-top: -15px;
+    padding-left: 10px;
+    opacity: 0; /* начальное значение непрозрачности */
+    transition: opacity 0.15s ease, background-color 0.3s; /* добавляем плавность для свойства opacity */
+}
+
+.user-message.visible, .bot-message.visible {
+    opacity: 1; /* при добавлении класса visible непрозрачность становится 1 */
+}
+
+  .message {
+    margin: 5px 0;
+    
+  }
+
+  .user-message:hover, .bot-message:hover {
+    background-color: rgba(131, 131, 131, 0.212);
+    border: 1px solid rgba(138, 138, 138, 0.555)
+  }
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  .hamburger-button {
+    position: fixed;
+    bottom: 25px;
+    left: calc(100% - 177px);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(128, 0, 128, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 24px;
+    border: 1px solid rgba(128, 0, 128, 0.8);
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 750;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px); /* Применяем размытие к контейнеру */
+}
+
+/* Стиль для включенной кнопки */
+.hamburger-button.enabled {
+    background-color: rgba(128, 0, 128, 0.5);
+}
+
+/* Стиль для кнопки, когда она в состоянии disabled */
+.hamburger-button:disabled {
+    background-color: rgba(48, 48, 48, 0.1);
+    color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(173, 173, 173, 0.185);
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* Медиа-запрос для портретного режима */
+@media (orientation: portrait) {
+    .hamburger-button {
+        bottom: 20px;
+        left: calc(100% - 137px);
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 600px) {
+    .hamburger-button {
+        bottom: 15px;
+        left: calc(100% - 150px);
+    }
+}
+
+
+
+
+
+.menu-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 50%;
+    background-color: rgba(45, 0, 128, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    font-family: 'Play';
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    z-index: 700;
+    opacity: 1; /* Начальная прозрачность */
+    transition: opacity 0.3s; /* Анимация перехода */
+}
+
+.menu-container:before {
+    content: '';
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+
+@media (orientation: portrait) {
+    .menu-container {
+        position: fixed;
+        width: 80%; /* Ширина контейнера 80% экрана */
+        height: 70%; /* Высота контейнера 75% экрана */
+        backdrop-filter: blur(5px); /* Применяем размытие к контейнеру */
+        z-index: 900;
+        
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 600px) {
+    .menu-container {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        transform: translate(-0%, -0%); /* Центрируем контейнер */
+        width: 30%; /* Ширина контейнера 80% экрана */
+        height: 56%; /* Высота контейнера 75% экрана */
+        backdrop-filter: blur(5px); /* Применяем размытие к контейнеру */
+        z-index: 900;
+        
+    }
+}
+
+
+
+.menu-container::-webkit-scrollbar {
+    width: 12px; /* Ширина полосы прокрутки */
+    border: 1px solid rgba(174, 0, 255, 0);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 299; /* Индекс слоя */
+}
+
+
+
+.menu-container::-webkit-scrollbar-track {
+
+    
+    background: rgba(39, 0, 29, 0.068); /* Цвет фона трека */
+    border-top-right-radius: 15px; /* Закругление нижнего правого угла */
+    border-bottom-right-radius: 15px; /* Закругление нижнего правого угла */
+    background-clip: padding-box; /* Область отображения фона */
+    backdrop-filter: blur(9px); /* Размытие подложки */
+    
+}
+
+
+
+.menu-container::-webkit-scrollbar-thumb {
+
+    background: rgba(21, 0, 70, 0.904); /* Цвет полосы прокрутки */
+    border-radius: 15px 70px 70px 15px; /* Радиус скругления углов полосы */
+    
+}
+
+
+
+.h2White {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+.encryptText {
+
+    background-color: rgba(0, 0, 0, 0.5); /* Черный цвет фона */
+    color: white; /* Белый цвет текста */
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid rgba(134, 134, 134, 0.521); /* Убираем границу */
+    border-radius: 15px; /* Закругленные углы */
+    padding: 10px 20px; /* Внутренний отступ */
+    font-family: 'Play';
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    transition: background-color 0.2s, color 0.3s, padding 0.2s; /* Плавные переходы */
+    z-index: 400;
+}
+
+.encryptText:hover {
+    border: 1px solid rgba(76, 0, 255, 0.63); /* Убираем границу */
+    background-color: rgb(62, 0, 179); /* Белый цвет фона при наведении */
+    color: rgb(255, 255, 255); /* Черный цвет текста при наведении */
+}
+
+.encryptText:active {
+    color: rgb(195, 0, 255); /* Белый цвет текста */
+    background-color: rgb(97, 55, 177); /* Белый цвет фона при наведении */
+}
+
+
+
+
+
+
+
+
+
+
+.andromeda-button {
+  position: fixed; /* Фиксированное позиционирование */
+  bottom: 25px;  /* Отступ от нижней границы вьюпорта */
+  right: 65px; /* Отступ от правой границы вьюпорта */
+  width: 50px; /* Ширина кнопки */
+  height: 50px; /* Высота кнопки */
+  border-radius: 50%; /* Круглая форма */
+  background-color: rgba(128, 0, 128, 0.1); /* Фиолетовый цвет с полупрозрачностью */
+  color: rgba(255, 255, 255, 0.5); /* Цвет иконки с альфа-каналом 0.7 */
+  font-size: 24px; /* Размер иконки */
+  border: 1px solid rgba(128, 0, 128, 0.8); /* Тонкий бордер с альфа-каналом 0.5 */
+  cursor: pointer; /* Устанавливаем курсор в виде указателя */
+  transition: all 0.3s; /* Плавный переход  */
+  z-index: 750;
+  display: flex; /* Используем flexbox для центрирования */
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
+  backdrop-filter: blur(5px); /* Применяем размытие к контейнеру */
+  }
+  
+  /* Стиль для включенной кнопки */
+  #andromeda-button.enabled {
+  background-color: rgba(128, 0, 128, 0.5); /* Цвет заднего фона при включенной кнопке */
+  }
+  
+  /* Стиль для кнопки, когда она в состоянии disabled */
+  .andromeda-button:disabled {
+  background-color: rgba(48, 48, 48, 0.1); /* Фоновый цвет кнопки при disabled */
+  color: rgba(255, 255, 255, 0.3); /* Цвет иконки при disabled */
+  border: 1px solid rgba(173, 173, 173, 0.185); /* Бордер при disabled */
+  cursor: not-allowed; /* Курсор в режиме not-allowed при disabled */
+  pointer-events: none; /* Отключаем события мыши при disabled */
+  opacity: 0.9; /* Прозрачность при disabled */
+  }
+  
+  @media screen and (orientation: portrait) and (max-width: 600px) {
+  /* Ваш стиль для альбомной ориентации и высоты экрана менее 600 пикселей */
+  .andromeda-button {
+      bottom: 20px;
+      right: 25px; 
+  }
+  }
+  
+  
+  @media screen and (orientation: landscape) and (max-height: 600px) {
+  /* Ваш стиль для альбомной ориентации и высоты экрана менее 600 пикселей */
+  .andromeda-button {
+      bottom: 15px;
+      right: 40px; 
+  }
+  }
+
+/* Ваш CSS-код здесь */
+
+
+.suggestion {
+  position: absolute;
+  left: 5px;
+  bottom: 77px;
+  margin: 0px;
+  padding: 5px;
+  color: darkgrey;
+  background-color: #3c2d7eb4;
+  border: 1px solid rgba(172, 172, 172, 0.425);
+  border-radius: 10px; /* Закругленные углы */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); /* Тень от контейнера */
+  width: 200px; /* Фиксированная ширина */
+  height: 40%; /* Высота 70% от высоты родителя */
+  overflow-y: auto; /* Включаем вертикальную прокрутку при необходимости */
+  overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
+  word-wrap: break-word; /* Автоматический перенос текста на следующую строку */
+  backdrop-filter: blur(5px); /* Блюр фона */
+  opacity: 0;
+  display: none;
+  z-index: 300;
+}
+
+
+.suggestion::-webkit-scrollbar {
+  width: 12px; /* Ширина полосы прокрутки */
+  border: 1px solid rgba(174, 0, 255, 0);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  
+}
+
+.suggestion::-webkit-scrollbar-track {
+  background: rgba(39, 0, 29, 0.226); /* Цвет фона трека */
+  border-top-right-radius: 15px; /* Закругление нижнего правого угла */
+  border-bottom-right-radius: 15px; /* Закругление нижнего правого угла */
+  background-clip: padding-box; /* Область отображения фона */
+  z-index: 95; /* Индекс слоя */
+}
+
+.suggestion::-webkit-scrollbar-thumb {
+  background: rgba(49, 0, 128, 0.8); /* Цвет полосы прокрутки */
+  border-radius: 15px 70px 70px 15px; /* Радиус скругления углов полосы */
+}
+
+
+
+
+
+/* Общий стиль кнопки */
+.suggestion-button {
+  background-color: transparent;
+  border: 1px solid darkgrey;
+  border-radius: 10px;
+  font-family: 'Play', sans-serif;
+  padding: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  color: rgb(255, 255, 255);
+  text-align: left; /* Выравнивание текста по левому краю */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Стиль при наведении на кнопку */
+.suggestion-button:hover {
+  background-color: rgba(211, 211, 211, 0.425);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1); /* Блюр и размытие фона */
+}
+
+/* Стиль при нажатии на кнопку */
+.suggestion-button:active {
+  transform: translateY(1px); /* Небольшое смещение вниз при нажатии */
+}
+
+/* Стили для всех кнопок "копировать" */
+.copy-button {
+  position: relative;
+  top: 2px;
+  left: calc(100% - 39px);
+  background-color: rgba(92, 92, 92, 0.397); /* Прозрачный фон */
+  border: 1px solid rgba(175, 175, 175, 0.24); /* Убираем границу */
+  border-radius: 8px; /* Делаем кнопку круглой */
+  cursor: pointer; /* Изменяем указатель при наведении */
+  font-size: 15px; /* Размер шрифта */
+  color: #ffffff86; /* Цвет иконки */
+  z-index: 800; /* Опционально: настройка z-index для кнопки "копировать" */
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
+  transition: all 0.3s;
+}
+
+@media screen and (orientation: portrait) {
+  /* Ваш стиль для альбомной ориентации и высоты экрана менее 600 пикселей */
+  .copy-button {
+    top: 2px;
+  }
+  }
+
+.copy-button:hover {
+  background-color: rgba(146, 146, 146, 0.568); /* Прозрачный фон */
+  color: #8d8d8d; /* Цвет иконки при наведении */
+  border: 1px solid rgba(175, 175, 175, 0.514); /* Убираем границу */
+}
+
+
+.infoBlock {
+  position: relative;
+  padding-right: 3px;
+  padding-left: 8px;
+  margin-left: -5px;
+  top: -25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgba(151, 151, 151, 0.068); /* Прозрачный фон */
+  border-bottom: 1px solid rgba(76, 0, 255, 0);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+@media screen and (orientation: portrait) {
+  /* Ваш стиль для альбомной ориентации и высоты экрана менее 600 пикселей */
+  .infoBlock {
+    top: -22px;
+    
+  }
+  }
+
+.copy-info {
+  position: absolute;
+  color: gray;
+  top: 30px;
+  transition: opacity 0.3s;
+}
+
+.image-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  max-width: 100px; /* Максимальная ширина миниатюры */
+  max-height: 100px; /* Максимальная высота миниатюры */
+  border-radius: 5px; /* Скругление углов */
+  margin-top: 5px; /* Отступ сверху */
+  background-color: #340f57;
+}
+
+/* Стили для миниатюры */
+.thumbnail {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  max-width: 100px; /* Максимальная ширина миниатюры */
+  max-height: 100px; /* Максимальная высота миниатюры */
+  border-radius: 5px; /* Скругление углов */
+  margin-top: 5px; /* Отступ сверху */
+}
